@@ -44,7 +44,7 @@ p{
 .btn{
     font-size: 1em;
     color: #FFF;
-    background: #FF0157;
+    background: #e30000;
     display: inline-block;
     padding: 10px 30px;
     margin-top: 20px;
@@ -82,7 +82,7 @@ header .logo{
 }
 
 header .logo span{
-    color: #FF0157;
+    color: #e30000;
 }
 
 header .navigation{
@@ -112,7 +112,7 @@ header.sticky .navigation li a{
 }
 
 header.sticky .navigation li a:hover{
-    color: #FF0157;
+    color: #e30000;
 }
 
 header.sticky .logo{
@@ -144,7 +144,7 @@ section{
 
 .title-text span{
     font-size: 1.5em;
-    color: #FF0157;
+    color: #e30000;
     font-weight: 700;
 }
 
@@ -193,6 +193,7 @@ section{
     position: relative;
     width: 100%;
     height: 300px;
+    overflow: hidden;
 }
 
 .menu .content .box .imgBox img{
@@ -200,6 +201,15 @@ section{
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform .5s ease;
+}
+
+.menu .content .box .imgBox:hover img{
+    transform: scale(1.5);
+}
+
+.menu .content .box:hover{
+    box-shadow: 0 5px 35px rgb(0 0 0 / 18%);
 }
 
 .menu .content .box .text{
@@ -211,6 +221,13 @@ section{
     color: #111;
 }
 
+.menu .content .menu-more{
+    display: none;
+}
+
+.menu .content .menu-more.active{
+    display: contents;
+}
 
 /*----------------EXPERT---------------*/
 
@@ -309,7 +326,7 @@ section{
 
 .testimonials .content .box .text h3{
     margin-top: 20px;
-    color: #FF0157;
+    color: #e30000;
     font-weight: 600;
     font-size: 1em;
 }
@@ -362,9 +379,135 @@ section{
     padding: 8px 40px;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     text-align: center;
-    background: #FF0157;
+    background-image: -o-linear-gradient(right, #e30000 0%, #bd0000 100%);
+    background-image: -moz-linear-gradient(right, #e30000 0%, #bd0000 100%);
+    background-image: -webkit-linear-gradient(right, #e30000 0%, #bd0000 100%);
+    background-image: -ms-linear-gradient(right, #e30000 0%, #bd0000 100%);
+    background-image: linear-gradient(to right, #e30000 0%, #bd0000 100%);
 }
 
 .copyright p {
     color: #FFF;
+}
+
+
+@media(max-width: 991px){
+    header,
+    header.sticky{
+        padding: 10px 20px;
+    }
+    header .navigation{
+        display: none;
+    }
+
+    header .hamburger{
+        position: relative;
+        height: 40px;
+        width: 40px;
+        background: url(assets/hamburger.png);
+        background-size: 30px;
+        background-position: center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+
+    header .hamburger.active{
+        position: relative;
+        height: 40px;
+        width: 40px;
+        background: url(assets/close.png);
+        background-size: 30px;
+        background-position: center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        z-index: 100000;
+        filter: invert(1);
+    }
+
+    header.sticky .hamburger{
+        filter: invert(1);
+    }
+
+    header .navigation.active{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: #FFF;
+    }
+
+    header .navigation.active li{
+        margin-left: 0;
+        font-size: 1.6em;
+        margin: 10px 0;
+    }
+    header .navigation.active li a{
+        color: #111;
+    }
+
+    header .navigation.active li a:hover{
+        color: #FFF;
+        padding: 5px 20px;
+        background: #e30000;
+    }
+
+    section{
+        padding: 20px;
+    }
+
+    .banner .content h2{
+        font-size: 3em;
+        color: #FFF;
+    }
+
+    .row{
+        flex-direction: column;
+    }
+
+    .row .col50{
+        width: 100%;
+        position: relative;
+    }
+
+    .row .col50 .imgBox{
+        width: 100%;
+        position: relative;
+        height: 300px;
+        margin-top: 20px;
+    }
+
+    .menu .content{
+        margin-top: 20px;
+    }
+
+    .menu .content .box{
+        margin: 10px;
+    }
+
+    .menu .content .box .imgBox{
+        height: 260px;
+    }
+
+    .title,
+    .title-text{
+        text-align: center;
+    }
+
+    .testimonials .content .box{
+        margin: 10px;
+        padding: 20px;
+    }
+
+    .contactBox{
+        padding: 15px 20px;
+    }
+    
+    .contactBox .btn{
+        margin-top: 0;
+    }
 }

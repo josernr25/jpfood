@@ -10,6 +10,9 @@
 <body>
     <header>
         <a href="#banner" class="logo">JP Food<span>.</span></a>
+        <div class="hamburger" onclick="hamburger(this)">
+
+        </div>
         <ul class="navigation">
             <li><a href="#banner">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -109,9 +112,59 @@
                     <h3>Yakisoba</h3>
                 </div>
             </div>
+            <div class="menu-more"> 
+                <div class="box">
+                    <div class="imgBox">
+                        <img src="assets/menu1.jpeg">
+                    </div>
+                    <div class="text">
+                        <h3>California Sushi</h3>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="imgBox">
+                        <img src="assets/menu2.jpeg">
+                    </div>
+                    <div class="text">
+                        <h3>Nigiri Sushi</h3>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="imgBox">
+                        <img src="assets/menu3.jpeg">
+                    </div>
+                    <div class="text">
+                        <h3>Special Table Sushi</h3>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="imgBox">
+                        <img src="assets/menu4.webp">
+                    </div>
+                    <div class="text">
+                        <h3>Ramen</h3>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="imgBox">
+                        <img src="assets/menu5.jpeg">
+                    </div>
+                    <div class="text">
+                        <h3>Special Obento</h3>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="imgBox">
+                        <img src="assets/menu6.jpg">
+                    </div>
+                    <div class="text">
+                        <h3>Yakisoba</h3>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="title">
-            <a href="#" class="btn">View All</a>
+            <a class="btn" onclick="showMenu(this)">View All</a>
         </div>
     </section>
     <section class="expert" id="expert">
@@ -227,7 +280,7 @@
         </div>
     </section>
     <div class="copyright">
-        <p>Copyright © 2022 TJP FOOD All rights reserved</p>
+        <p>Copyright © 2022 JP FOOD All rights reserved</p>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
     integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
@@ -242,6 +295,27 @@
                 $(header).removeClass('sticky');
             };
         });
+
+        function hamburger(element){
+            if($(element).hasClass('active')){
+                $(element).removeClass('active');
+                $('.navigation').removeClass('active');
+            }else{
+                $(element).addClass('active');
+                $('.navigation').addClass('active');
+            }
+        }
+
+        function showMenu(element){
+            if($('.menu-more').hasClass('active')){
+                $('.menu-more').removeClass('active');
+                $(element).text('View All');
+            }else{
+                $('.menu-more').addClass('active');
+                $(element).text('Close');
+            }
+            
+        }
     </script>
 </body>
 </html>
