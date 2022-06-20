@@ -14,12 +14,13 @@
 
         </div>
         <ul class="navigation">
-            <li><a href="#banner">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#menu">Menu</a></li>
-            <li><a href="#expert">Expert</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a data-to="banner" onclick="scrollToSection(this)">Home</a></li>
+            <li><a data-to="about" onclick="scrollToSection(this)">About</a></li>
+            <li><a data-to="menu" onclick="scrollToSection(this)">Menu</a></li>
+            <li><a data-to="expert" onclick="scrollToSection(this)">Expert</a></li>
+            <li><a data-to="testimonials" onclick="scrollToSection(this)">Testimonials</a></li>
+            <li><a data-to="findus" onclick="scrollToSection(this)">Find Us</a></li>
+            <li><a data-to="contact" onclick="scrollToSection(this)">Contact</a></li>
         </ul>
     </header>
     <section class="banner" id="banner">
@@ -324,6 +325,16 @@
                 $(element).text('Close');
             }
             
+        }
+
+        function scrollToSection(element){
+            var dataTo = $(element).data('to');
+            var getMeTo = document.getElementById(dataTo);
+            getMeTo.scrollIntoView({behavior: 'smooth'}, true);
+            if($('.hamburger').hasClass('active')){
+                $('.hamburger').removeClass('active');
+                $('.navigation').removeClass('active');
+            }
         }
     </script>
 </body>
